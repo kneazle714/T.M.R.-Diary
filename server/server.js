@@ -36,7 +36,7 @@ app.post('/who', (req, res) => {
 });
 
 app.post('/finddiary', memoryController.findMemory, (req, res) => {
-  res.json(res.locals.memory);
+  return res.json(res.locals.memory);
 });
 
 app.post('/creatediary', memoryController.createMemory, (req, res) => {

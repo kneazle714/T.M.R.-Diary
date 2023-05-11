@@ -1,5 +1,5 @@
 .background-image {
-  background-image: url('../images/diary.png');
+  background-image: url('../assets/diary.png');
   background-size:100%;
   background-color: rgb(10, 27, 16);
 }
@@ -14,37 +14,53 @@ div {
 
 #input {
   padding: 15px 10px;
-  height: 50px;
+  height: 100px;
   max-width: 1000px;
   width: 100%;
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-left: 15%;
   margin-top: 10%;
   background-color: transparent;
   position: relative;
   border: none;
   font-family: Bradley Hand, cursive;
+  overflow: hidden;
 }
 
 #response {
   padding: 15px 10px;
-  height: 50px;
+  height: 200px;
   max-width: 1000px;
   width: 100%;
   font-size: 2.5rem;
   margin-left: 15%;
+  margin-top: 20%;
   background-color: transparent;
   position: relative;
   border: none;
   font-family: cursive;
+  overflow: hidden;
 }
 
-button {
+#start {
   height: 50px;
   max-width: 200px;
   border-radius: 0;
   background: transparent;
+  position: absolute;
+  z-index: 9;
 }
+
+
+/* #stop {
+  height: 50px;
+  max-width: 200px;
+  margin-top: 5%;
+  border-radius: 0;
+  background: transparent;
+  position: absolute;
+  z-index: 9;
+} */
 
 *:focus {
   outline: none;

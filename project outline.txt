@@ -8,7 +8,7 @@ function:
         - prompt : '5.6: Slytherin was docked 50 points because of me.'
         - adds a memory to database and returns 'Legilimens'
     - read memory funciton
-        - prompt : 'What is my memory on 5.5'
+        - prompt : 'Show me my memory on 5.5'
         - returns the memory labeled May 5
     - alter memory function
         - prompt: 'Change my memory on 5.5 to: Slytherin lost 50 points because of me.'

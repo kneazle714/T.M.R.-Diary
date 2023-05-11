@@ -10,6 +10,7 @@ memoryController.createMemory = (req, res, next) => {
   console.log(req.body);
   console.log(date);
   console.log('INSIDE creatememory');
+
   Memory.create({ date, content })
     .then(() => {
       // res.locals.memory = data;
@@ -33,11 +34,18 @@ memoryController.findMemory = (req, res, next) => {
     .then((data) => {
       console.log('data is:', data);
       console.log('memory has been found');
+      if(data.length === 0) {
+        return res.json('Nothing happened on this day');
+      }
       res.locals.memory = data[0].content;
       return next();
     })
     .catch((err) => {
-      res.send('Nothing happened on this day');
+      return next({
+        log: 'Error occurred in memoryController.findMemory.',
+        status: 400,
+        message: { err: 'An error occurred' },
+      });
     });
 };
 
@@ -55,7 +63,7 @@ memoryController.updateMemory = (req, res, next) => {
     })
     .catch((err) => {
       return next({
-        log: 'Error occurred in memoryController.findMemory.',
+        log: 'Error occurred in memoryController.updateMemory.',
         status: 400,
         message: { err: 'An error occurred' },
       });
@@ -71,7 +79,7 @@ memoryController.deleteMemory = (req, res, next) => {
   })
   .catch((err) => {
     return next({
-      log: 'Error occurred in memoryController.findMemory.',
+      log: 'Error occurred in memoryController.deleteMemory.',
       status: 400,
       message: { err: 'An error occurred' },
     });

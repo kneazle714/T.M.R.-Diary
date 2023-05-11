@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
 // import { render } from 'react-dom';
 import './styles.css';
+import bgm3 from '../assets/bgm3.mp3';
 
 function App() {
   const [input, setInput] = useState('');
   const [reply, setReply] = useState('');
 
-  // useEffect(() => {
-  //   fetch("http://localhost:8080/diary")
-  //     .then((res) => res.json())
-  //     .then((data) => setPrompt(data));
-  // }, []);
+  const audio = new Audio(bgm3);
+  audio.volume = 0.1;
+
+  const start = () => {
+    audio.play();
+  };
+
+  const stop = () => {
+    audio.pause();
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -37,7 +43,7 @@ function App() {
           console.log(err);
           console.log('failed creating memory');
         });
-    } else if (input.startsWith('What')) {
+    } else if (input.startsWith('Show')) {
       const splitInput = input.split('on');
       const date = splitInput[1].trim();
       fetch('/finddiary', {
@@ -139,43 +145,54 @@ function App() {
         .catch((err) => {
           console.log(err);
         });
+    } else if (input.length !== 0) {
+      fetch('https://hp-api.onrender.com/api/spells')
+      .then((data) => {
+        return data.json();
+      })
+      .then((data) => {
+        console.log(data.length);
+        let spell = data[Math.floor(Math.random() * data.length)]
+        setReply(`${spell.name}: ${spell.description}.`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     }
 
     setInput('');
     setReply('');
-   }
 
-  // class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     date: '',
-  //     content: ''
-  //   };
-  //   // this.handleSubmit = this.handleSubmit.bind(this);
-  //   // this.handleInput = this.handleInput.bind(this);
-  // }
-  // render() {
-  return (
-    <div className='app' onClick={handleSubmit} >
-      <div className='background-image'>
-      <form autocomplete="off">
-        <input
-          id='input'
-          type="text"
-          value={input}
-          onChange={(e) => {
-            setInput(e.target.value);
-          }}
-        ></input>
-      </form>
-      <input 
-      id='response'
-      type="text" 
-      value={reply}></input>
-      </div>
-      </div> 
-  )
   }
+
+  return (
+    <div className="app" onClick={handleSubmit}>
+      <div className="background-image">
+        <form autocomplete="off">
+          <div>
+          <textarea
+            id="input"
+            type="text"
+            value={input}
+            onChange={(e) => {
+              setInput(e.target.value);
+            }}
+          ></textarea>
+          </div>
+        </form>
+        <textarea
+        id="response" 
+        type="text" 
+        value={reply}
+        ></textarea>    
+      </div>
+      <button id="start" type="button" onClick={start}>
+        </button>
+        {/* <button id="stop" type="button" onClick={stop}>
+        </button> */}
+    </div>
+    
+  );
+}
 
 export default App;
