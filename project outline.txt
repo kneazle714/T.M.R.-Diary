@@ -16,7 +16,7 @@ function:
         - try read memory function again
         - returns 'May 5: Slytherin won 20 points because of me.'
     - delete memory function
-        - prompt: 'Delete my memory on May 5'
+        - prompt: 'Delete my memory on 5.5'
         - delete this memory and returns 'Obliviate'
         - try read memory function again
         - returns 'Nothing happened on this day'

@@ -28,7 +28,7 @@ function App() {
       const splitInput = input.split(':');
       const date = splitInput[0];
       const content = splitInput[1].trim();
-      
+
       fetch('/creatediary', {
         method: 'POST',
         headers: {
@@ -65,13 +65,13 @@ function App() {
           console.log(err);
           console.log('failed finding memory');
         });
-    } else if (input.startsWith('change')) {
-      const firstSplit = input.split('on');
-      const firstSplitTrimmed = firstSplit[1].trim();
-      const secondSplit = firstSplitTrimmed.split(':');
-      const secondSplitTrimmed = secondSplit[0].trim();
-      const content = secondSplitTrimmed[1].trim();
-      const thirdSplit = secondSplitTrimmed.split('');
+    } else if (input.startsWith('Change')) {
+      // Change my memory on 5.2 to: Slytherin won 50 points because of me.
+      const firstSplit = input.split(':');
+      const content = firstSplit[1].trim();
+      const secondSplit = firstSplit[0].split('on');
+      const secondSplitTrimmed = secondSplit[1].trim();
+      const thirdSplit = secondSplitTrimmed.split('to');
       const date = thirdSplit[0].trim();
 
       fetch('/updatediary', {
@@ -91,8 +91,30 @@ function App() {
           console.log(err);
           console.log('failed updating memory');
         });
+    } else if (input.startsWith('Delete')) {
+      // Delete my memory on 5.2
+      const splitInput = input.split('on');
+      const date = splitInput[1].trim();
+
+      fetch('/deletediary', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ date: date }),
+      })
+        .then((data) => {
+          return data.json();
+        })
+        .then((data) => {
+          setReply(data);
+        })
+        .catch((err) => {
+          console.log(err);
+          console.log('failed deleting memory');
+        });
     }
-  }
+   }
 
   // class App extends Component {
   // constructor(props) {

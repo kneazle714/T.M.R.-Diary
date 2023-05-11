@@ -44,6 +44,7 @@ memoryController.findMemory = (req, res, next) => {
 // // update memory
 memoryController.updateMemory = (req, res, next) => {
    const { date, content } = req.body;
+   console.log('INSIDE updatememory:', req.body);
   Memory.findOneAndUpdate(
     { date: date},
     { content: content },
@@ -63,8 +64,8 @@ memoryController.updateMemory = (req, res, next) => {
 
 // // delete memory
 memoryController.deleteMemory = (req, res, next) => {
-  //   const { date } = req.body;
-  Memory.findOneAndDelete({ date : '5.12' })
+  const { date } = req.body;
+  Memory.findOneAndDelete({ date: date })
   .then(() => {
     return next();
   })
