@@ -11,9 +11,28 @@ memoryController.createMemory = (req, res, next) => {
   console.log(date);
   console.log('INSIDE creatememory');
 
+  // let skipCreate = false;
+  // Memory.find({ date })
+  // .then((data) => {
+  //   console.log('INSIDE skipcreate');
+  //   console.log(data.length);
+  //   if (data) {
+  //     skipCreate = true;
+  //   }
+  //   console.log(skipCreate);
+  // })
+  // console.log('OUTSIDE skipcreate');
+  // console.log(skipCreate);
+
+  // if (skipCreate) {
+
+  //   res.json('You already have memory');
+  //   return next();
+  // }
+
   Memory.create({ date, content })
     .then(() => {
-      // res.locals.memory = data;
+      // res.locals.memory = data[0];
       console.log('memory has been saved');
       return next();
     })
