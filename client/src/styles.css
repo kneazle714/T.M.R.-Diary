@@ -1,0 +1,51 @@
+.background-image {
+  background-image: url('../images/diary.png');
+  background-size:100%;
+  background-color: rgb(10, 27, 16);
+}
+
+div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#input {
+  padding: 15px 10px;
+  height: 50px;
+  max-width: 1000px;
+  width: 100%;
+  font-size: 2rem;
+  margin-left: 15%;
+  margin-top: 10%;
+  background-color: transparent;
+  position: relative;
+  border: none;
+  font-family: Bradley Hand, cursive;
+}
+
+#response {
+  padding: 15px 10px;
+  height: 50px;
+  max-width: 1000px;
+  width: 100%;
+  font-size: 2.5rem;
+  margin-left: 15%;
+  background-color: transparent;
+  position: relative;
+  border: none;
+  font-family: cursive;
+}
+
+button {
+  height: 50px;
+  max-width: 200px;
+  border-radius: 0;
+  background: transparent;
+}
+
+*:focus {
+  outline: none;
+}

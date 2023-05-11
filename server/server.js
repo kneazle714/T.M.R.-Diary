@@ -26,6 +26,15 @@ app.get('/', (req, res) => {
 // });
 
 // // POST
+
+app.post('/hello', (req, res) => {
+  res.json('Hello, my name is Tom Riddle.');
+});
+
+app.post('/who', (req, res) => {
+  res.json('I am the owner of this diary. Now, this diary is at your disposal.');
+});
+
 app.post('/finddiary', memoryController.findMemory, (req, res) => {
   res.json(res.locals.memory);
 });

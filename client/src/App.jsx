@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import { render } from 'react-dom';
+import './styles.css';
 
 function App() {
   const [input, setInput] = useState('');
@@ -14,15 +15,6 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(input);
-
-    //   fetch(("/diary"), {
-    //   method: "POST",
-    //   mode: "no-cors",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(prompt)
-    // })
 
     if (/^\d/.test(input)) {
       const splitInput = input.split(':');
@@ -113,7 +105,44 @@ function App() {
           console.log(err);
           console.log('failed deleting memory');
         });
+    } else if (input.startsWith('Hello')) {
+      fetch('/hello', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(),
+      })
+        .then((data) => {
+          return data.json();
+        })
+        .then((data) => {
+          setReply(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else if (input.startsWith('Who')) {
+      fetch('/who', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(),
+      })
+        .then((data) => {
+          return data.json();
+        })
+        .then((data) => {
+          setReply(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
+
+    setInput('');
+    setReply('');
    }
 
   // class App extends Component {
@@ -128,21 +157,25 @@ function App() {
   // }
   // render() {
   return (
-    <>
-      <form>
+    <div className='app' onClick={handleSubmit} >
+      <div className='background-image'>
+      <form autocomplete="off">
         <input
+          id='input'
           type="text"
           value={input}
           onChange={(e) => {
             setInput(e.target.value);
           }}
         ></input>
-        <button onClick={handleSubmit}>submit</button>
       </form>
-      <input type="text" value={reply}></input>
-    </>
-  );
-  // }
-}
+      <input 
+      id='response'
+      type="text" 
+      value={reply}></input>
+      </div>
+      </div> 
+  )
+  }
 
 export default App;
