@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server/server.js",
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development webpack serve --open",
+    "dev": "concurrently \"NODE_ENV=development webpack-dev-server --open --hot --progress --color \" \"nodemon ./server/server.js\"",
     "gulp-prod": "node_modules/.bin/gulp prod",
     "gulp-dev": "node_modules/.bin/gulp dev"
   },
@@ -23,6 +23,7 @@
     "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.1",
     "nodemon": "^2.0.22",
+    "react-router-dom": "^6.11.1",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
     "style-loader": "^3.3.2",
@@ -32,6 +33,7 @@
   },
   "dependencies": {
     "body-parser": "^1.20.2",
+    "concurrently": "^8.0.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mongoose": "^7.1.0",

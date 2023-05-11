@@ -5,13 +5,13 @@ function:
         - 'Who are you?' : 'I am the owner of this diary. Now, this diary is at your disposal.'
         - (optional) 'Do you know anything about Voldemort?' : app crashed and bring in the I AM VOLDEMORT video
     - add memory function
-        - prompt : 'May 5: Slytherin was docked 50 points because of me.'
+        - prompt : '5.5: Slytherin was docked 50 points because of me.'
         - adds a memory to database and returns 'Legilimens'
     - read memory funciton
-        - prompt : 'What did I do on May 5?'
+        - prompt : 'What did I do on 5.5'
         - returns the memory labeled May 5
     - alter memory function
-        - prompt: 'Change my memory on May 5 to 'Slytherin won 50 points because of me.'
+        - prompt: 'Change my memory on 5.5 to: Slytherin won 50 points because of me.'
         - change this memory and returns 'Imperio'
         - try read memory function again
         - returns 'May 5: Slytherin won 20 points because of me.'

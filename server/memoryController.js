@@ -6,10 +6,13 @@ const memoryController = {};
 
 // // create memory
 memoryController.createMemory = (req, res, next) => {
-  //   const { date, content } = req.body;
+  const { date, content } = req.body;
+  console.log(req.body);
+  console.log(date);
   console.log('INSIDE creatememory');
-  Memory.create({ date: '5.13', content: 'new day' })
+  Memory.create({ date, content })
     .then(() => {
+      // res.locals.memory = data;
       console.log('memory has been saved');
       return next();
     })
@@ -24,11 +27,13 @@ memoryController.createMemory = (req, res, next) => {
 
 // // find memory
 memoryController.findMemory = (req, res, next) => {
-  // const { date } = req.body;
-  Memory.find({ date: '5.12' })
+  const { date } = req.body;
+  console.log('INSIDE findmemory:', req.body);
+  Memory.find({ date })
     .then((data) => {
+      console.log('data is:', data);
       console.log('memory has been found');
-      res.locals = data[0].content;
+      res.locals.memory = data[0].content;
       return next();
     })
     .catch((err) => {
@@ -38,10 +43,10 @@ memoryController.findMemory = (req, res, next) => {
 
 // // update memory
 memoryController.updateMemory = (req, res, next) => {
-  //  const { date, content } = req.body;
+   const { date, content } = req.body;
   Memory.findOneAndUpdate(
-    { date: '5.12' },
-    { content: 'updated content' },
+    { date: date},
+    { content: content },
     { new: true }
   )
     .then(() => {

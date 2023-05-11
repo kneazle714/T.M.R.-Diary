@@ -20,24 +20,26 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-// // GET
-app.get('/diary', memoryController.findMemory, (req, res) => {
-  res.send(res.locals);
-});
+// app.post('/test',(req,res)=>{
+//   console.log('req.body: ', req.body);
+//   res.json(req.body);
+// });
 
 // // POST
-app.post('/diary', memoryController.createMemory, (req, res) => {
-  res.send('Legilimens');
+app.post('/finddiary', memoryController.findMemory, (req, res) => {
+  res.json(res.locals.memory);
 });
 
-// PUT
-app.put('/diary', memoryController.updateMemory, (req, res) => {
-  res.send('Imperio');
+app.post('/creatediary', memoryController.createMemory, (req, res) => {
+  return res.json('Legilimens');
 });
 
-// DELETE
-app.delete('/diary', memoryController.deleteMemory, (req, res) => {
-  res.send('Obliviate');
+app.post('/updatediary', memoryController.updateMemory, (req, res) => {
+  res.json('Imperio');
+});
+
+app.post('/deletediary', memoryController.deleteMemory, (req, res) => {
+  res.json('Obliviate');
 });
 
 // // catch all route handler
