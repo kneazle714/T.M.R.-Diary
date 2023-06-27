@@ -1,1 +1,1 @@
-# T.M.-Diary
+# Tom Riddle's Diary
