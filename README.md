@@ -4,11 +4,26 @@ Hi there, you have found a mysterious diary.
 
 <img src='client/assets/readme-diary.png' width="500">
 
-## Introduction
+# Introduction
 
 Tom Riddle's Diary, an App inspired by the movie Harry Potter and the Chamber of Secrets, and designed to provide exceptional user experience on securing and organizing diaries. 
 
-## Technologies
+To get started, simply fork this repo, and enjoy reading, writing, editing or removing your secret diaries! 
+
+# Prompt hints
+
+- All date format should be month.day, for example 7.1
+- Bold fonts are required key words in prompt
+- Create memories: <br />
+  `date`**:** `<your memory>`
+- Read memories: <br />
+  **Show** me my memory **on** `date`
+- Modify memories: <br />
+  **Change** my memory **on** `date` **to:** `<new memory>`
+- Delete memories: <br />
+  **Delete** my memory **on** `date`
+
+# Technologies
 
 ![JavaScript](https://img.shields.io/badge/-javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![React](https://img.shields.io/badge/-react-white?style=for-the-badge&logo=react&logoColor=blue)
@@ -20,6 +35,8 @@ Tom Riddle's Diary, an App inspired by the movie Harry Potter and the Chamber of
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
+<br />
+🧙🏻‍♀️🪄⚡🔮🧹🧙🏻‍♂️ <br />
 
-SUPPORT BY ⭐️ THIS REPOSITORY!
+SHOW LOVE AND SUPPORT BY ⭐️ THIS REPOSITORY!
 
