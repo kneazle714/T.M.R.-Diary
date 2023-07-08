@@ -19,3 +19,5 @@ Tom Riddle's Diary, an App inspired by the movie Harry Potter and the Chamber of
 ![Webpack](https://img.shields.io/badge/Webpack-2CA5E0?style=for-the-badge&logo=webpack&logoColor=white)
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+
+❤️❤️❤️ SUPPORT BY ⭐️ THIS REPOSITORY!  ❤️❤️❤️
