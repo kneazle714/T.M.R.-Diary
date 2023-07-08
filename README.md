@@ -15,11 +15,11 @@ To get started, simply fork this repo, and enjoy reading, writing, editing or re
 - All date format should be month.day, for example 7.1
 - Bold fonts are required key words in prompt
 - Create memories: <br />
-  `date`**:** `<your memory>`
+  `date`**:** `your memory`
 - Read memories: <br />
   **Show** me my memory **on** `date`
 - Modify memories: <br />
-  **Change** my memory **on** `date` **to:** `<new memory>`
+  **Change** my memory **on** `date` **to:** `new memory`
 - Delete memories: <br />
   **Delete** my memory **on** `date`
 
