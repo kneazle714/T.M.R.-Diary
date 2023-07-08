@@ -23,7 +23,7 @@ To get started, simply fork this repo, and enjoy reading, writing, editing or re
 - Delete memories: <br />
   **Delete** my memory **on** `date`
 
-# Technologies
+# Built with
 
 ![JavaScript](https://img.shields.io/badge/-javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![React](https://img.shields.io/badge/-react-white?style=for-the-badge&logo=react&logoColor=blue)
