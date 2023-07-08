@@ -8,7 +8,7 @@ function App() {
   const [reply, setReply] = useState('');
 
   const audio = new Audio(bgm3);
-  audio.volume = 0.1;
+  audio.volume = 0.02;
 
   const start = () => {
     audio.play();

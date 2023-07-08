@@ -32,7 +32,9 @@ app.post('/hello', (req, res) => {
 });
 
 app.post('/who', (req, res) => {
-  res.json('I am the owner of this diary. Now, this diary is at your disposal.');
+  res.json(
+    'I am the owner of this diary. Now, this diary is at your disposal.'
+  );
 });
 
 app.post('/finddiary', memoryController.findMemory, (req, res) => {
