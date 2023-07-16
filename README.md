@@ -2,7 +2,7 @@
 
 Hi there, you have found a mysterious diary. Feel free to write down a greeting and see what happens.
 
-<img src='client/assets/greeting.png' width="500">
+<img src='client/assets/hello.png' width="500">
 
 # Introduction
 
