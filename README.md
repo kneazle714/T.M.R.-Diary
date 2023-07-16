@@ -1,6 +1,6 @@
 # T.M. Riddle's Diary
 
-Hi there, you have found a mysterious diary.
+Hi there, you have found a mysterious diary. Feel free to write down a greeting and see what will happen.
 
 <img src='client/assets/readme-diary.png' width="500">
 
