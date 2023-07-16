@@ -12,6 +12,7 @@ To get started, simply fork this repo, and enjoy reading, writing, editing or re
 
 # Prompt hints
 
+- If you have no idea about who T.M.R. is, simply ask "Who are you?"
 - All date format should be month.day, for example 7.1
 - Bold fonts are required key words in prompt
 - Create memories: <br />
@@ -22,6 +23,7 @@ To get started, simply fork this repo, and enjoy reading, writing, editing or re
   **Change** my memory **on** `date` **to:** `new memory`
 - Delete memories: <br />
   **Delete** my memory **on** `date`
+- Try typing in something random and see what T.M.R. will tell you
 
 # Built with
 
