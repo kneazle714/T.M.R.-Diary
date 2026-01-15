@@ -6,7 +6,7 @@ const cors = require('cors');
 
 const memoryController = require('./memoryController');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -15,18 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-// serve html
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/index.html'));
-});
-
-// app.post('/test',(req,res)=>{
-//   console.log('req.body: ', req.body);
-//   res.json(req.body);
-// });
-
-// // POST
-
+// API Routes
 app.post('/hello', (req, res) => {
   res.json('Hello, my name is Tom Riddle.');
 });
@@ -53,12 +42,27 @@ app.post('/deletediary', memoryController.deleteMemory, (req, res) => {
   res.json('Obliviate');
 });
 
-// // catch all route handler
-app.use('*', (req, res) => {
-  return res
-    .status(404)
-    .sendFile(path.resolve(__dirname, '../client/404.html'));
-});
+// Serve static files from the React app in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../dist')));
+  
+  // Serve React app for all other routes (for client-side routing)
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/index.html'));
+  });
+} else {
+  // Development: serve html from client folder
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/index.html'));
+  });
+  
+  // catch all route handler for development
+  app.use('*', (req, res) => {
+    return res
+      .status(404)
+      .sendFile(path.resolve(__dirname, '../client/404.html'));
+  });
+}
 
 // // global error handler
 app.use((err, req, res, next) => {
@@ -75,5 +79,5 @@ app.use((err, req, res, next) => {
 // module.exports = app;
 
 app.listen(PORT, () => {
-  console.log('app is listening on port 3000');
+  console.log(`app is listening on port ${PORT}`);
 });

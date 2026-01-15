@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: tm-riddle-diary
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: PORT
+        fromService:
+          type: web
+          name: tm-riddle-diary
+          property: port
