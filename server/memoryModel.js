@@ -1,7 +1,18 @@
 const mongoose = require('mongoose');
 
-const MONGO_URI = process.env.MONGO_URI ||
-  'mongodb+srv://kristenyueran:helloworld@cluster0.tugaa8i.mongodb.net/?retryWrites=true&w=majority';
+// Load environment variables from .env file in development
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
+// MongoDB connection string from environment variable
+// Set this in your .env file or deployment platform's environment variables
+const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
+  console.error('ERROR: MONGO_URI environment variable is not set!');
+  console.error('Please set MONGO_URI in your .env file or deployment platform.');
+}
 
 mongoose
   .connect(MONGO_URI, {
