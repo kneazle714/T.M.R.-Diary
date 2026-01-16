@@ -44,9 +44,11 @@ app.post('/deletediary', memoryController.deleteMemory, (req, res) => {
 
 // Serve static files from the React app in production
 if (process.env.NODE_ENV === 'production') {
+  // Serve static files (JS, CSS, images, etc.) from dist folder
   app.use(express.static(path.join(__dirname, '../dist')));
   
-  // Serve React app for all other routes (for client-side routing)
+  // Serve React app for all GET routes (for client-side routing)
+  // This must be last, after all API routes
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../dist/index.html'));
   });
