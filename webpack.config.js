@@ -34,6 +34,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               esModule: false,
+              url: true, // Enable URL processing for background images
             },
           }
         ]
