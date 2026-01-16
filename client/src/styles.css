@@ -2,9 +2,6 @@
   background-image: url('../assets/diary.png');
   background-size:100%;
   background-color: rgb(10, 27, 16);
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100vh;
 }
 
 div {
@@ -28,12 +25,6 @@ div {
   border: none;
   font-family: Bradley Hand, cursive;
   overflow: hidden;
-  color: #000;
-  z-index: 10;
-}
-
-#input::placeholder {
-  color: rgba(0, 0, 0, 0.5);
 }
 
 #response {
@@ -49,9 +40,6 @@ div {
   border: none;
   font-family: cursive;
   overflow: hidden;
-  color: #000;
-  z-index: 10;
-  resize: none;
 }
 
 #start {

@@ -28,16 +28,7 @@ module.exports = {
       {
         test: /.(css|scss)$/,
         exclude: /node_modules/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              esModule: false,
-              url: true, // Enable URL processing for background images
-            },
-          }
-        ]
+        use: ['style-loader', 'css-loader']
       },
       {
       

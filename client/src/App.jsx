@@ -174,7 +174,6 @@ function App() {
             id="input"
             type="text"
             value={input}
-            placeholder="Write your memory here..."
             onChange={(e) => {
               setInput(e.target.value);
             }}
